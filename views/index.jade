@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(name="leftpad", action="/leftpad", method="post")
+    span.label String2Pad
+    input(type="text", name="string2pad", id="str2pad")
+    span.label Pad2Length
+    input(type="number", name="len2pad", id="len2pad")
+    span.label "Char2Pad "
+    input(type="text", name="char2pad", maxLength="1", id="char2pad")
+    input(type="submit", name="pad", text="Pad this!")
+
+  ul
+    each result in results
+      li=  result
