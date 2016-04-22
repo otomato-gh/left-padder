@@ -1,6 +1,7 @@
 
 var express = require('express');
 var routes = require('./routes');
+var api = require('./routes/api');
 var http = require('http');
 var path = require('path');
 var methodOverride = require('method-override');
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 app.post( '/leftpad', routes.leftpad );
+app.post( '/leftpad-api', api.leftpad );
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
