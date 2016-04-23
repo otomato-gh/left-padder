@@ -14,7 +14,7 @@ exports.index = function(req, res){
 };
 
 exports.leftpad = function ( req, res ){
-    console.log(req.body);
+    console.log("request:"+req.body);
     results.push(cflp(req.body.string2pad, req.body.len2pad, req.body.char2pad));
     res.redirect( '/' );
 };
