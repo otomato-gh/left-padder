@@ -1,6 +1,12 @@
 FROM node:4.4.3
 MAINTAINER Anton Weiss <anton@otomato.link>
 LABEL Description="Serve left-padded strings"
-WORKDIR /var/www
-ADD . /var/www
-CMD npm install && npm start
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/
+RUN npm install --silent
+COPY . /usr/src/app
+
+CMD [ "npm", "start" ]
